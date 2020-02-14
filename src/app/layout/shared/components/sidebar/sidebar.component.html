@@ -1,0 +1,49 @@
+<section class="sideMenu" [ngClass]="collapsedWindow ? 'open' : 'close'">
+    <div class="logo d-flex align-items-center justify-content-center">
+        <img src="../../../assets/images/logo.jpg" alt="Exela Smart Office" title="Exela Smart Office" />
+    </div>
+    <div class="menu">
+        <ul>
+            <li>
+                <a>
+                    <fa-icon [icon]="faChartBar"></fa-icon> <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <i class="fa fa-black-tie" aria-hidden="true"></i> <span>Client Setup</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <fa-icon [icon]="faBuilding"></fa-icon> <span>Facility Setup</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <fa-icon [icon]="faUserFriends"></fa-icon> <span>User Setup</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <fa-icon [icon]="faUserCog"></fa-icon> <span>Role Setup</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <fa-icon [icon]="faCheckDouble"></fa-icon> <span>Allocation</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <fa-icon [icon]="faEdit"></fa-icon> <span>Configure Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <fa-icon [icon]="faPodcast"></fa-icon> <span>Sensor Status</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>

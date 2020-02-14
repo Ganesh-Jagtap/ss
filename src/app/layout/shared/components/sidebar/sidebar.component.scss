@@ -1,0 +1,41 @@
+@import './../../../../../styles/style.mixin';
+
+.sideMenu {
+    background: $sideBarBg; 
+    height: 100%;
+    .logo {
+        height: 70px;
+        background: $white;
+        img {
+            max-width: 100%;
+        }
+    }
+    .menu{
+        ul {
+            list-style: none;
+            margin: $s0;
+            padding: $s0;
+            li{
+                a {
+                    display: block;
+                    padding: $s15 $s20;
+                    color: $white;
+                    font-weight: $weight400;
+                    font-size: $s14;
+                    cursor: pointer;
+                    .ng-fa-icon,
+                    .fa {
+                        color: $white;
+                        font-size: $s16;
+                    }
+                    span {
+                        padding: $s0 $s0 $s0 $s12;
+                    }
+                    &:hover {
+                        background: #124e73;
+                    }
+                }
+            }
+        }
+    }
+}

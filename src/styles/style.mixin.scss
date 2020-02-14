@@ -1,0 +1,458 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900&display=swap');
+
+
+// Font weight
+
+$weight100 : 100;
+$weight200 : 200;
+$weight300 : 300;
+$weight400 : 400;
+$weight500 : 500;
+$weight600 : 600;
+$weight700 : 700;
+$weight800 : 800;
+$weight900 : 900;
+
+
+
+// Colors
+
+$black : #18191b;
+$State : #40505b;
+$midGray : #6E7881;
+$lightGray : #e1e2e3;
+$white : #ffffff;
+$lightBlue: #a2ddf9;
+$Blue : #4dc5f2;
+$magenta : #cc1b98;
+$bodyBg : #f5f9fa;
+$sideBarBg : #1177d9;
+
+// Buttons color
+
+
+$defaultBG: #D71996; 
+$defaultHover: #961169; 
+$defaultDisabledColor: #767676;
+$defaultDisabledBG: #D1D1D1; 
+$default1BorderAndHover: #1277D9; 
+
+// Links color
+
+$primaryLinkOnLightBg: #1277D9;  
+$primaryLinkOnLightHover: #0b4a87;  
+$secondaryLinkOnLightBg: #BB1681;  
+$secondaryLinkOnLightHover: #961169;  
+
+$primaryLinkOnDarkBg: #43CDF8;  
+$primaryLinkOnDarkHover: #A2DDF9;  
+$secondaryLinkOnDarkBg: #E1E2E3;  
+$secondaryLinkOnDarkHover: #A2DDF9;  
+$default2Hover:  #0B4A87;
+
+
+// border style 
+
+$border1px : 1px solid transparent;
+$border2px : 2px solid transparent;
+$border3px : 3px solid transparent;
+$border4px : 4px solid transparent;
+$border5px : 5px solid transparent;
+
+
+
+// input color
+
+
+
+// Semantic colors
+
+$pending : #B53CDE;
+$start : #71ade8;
+$completed : #1277D9;
+$success : #218666;
+$warning : #f4b836;
+$fail : #f3305d;
+
+// Typography
+
+@mixin applyFont($fontFamily: 'Work Sans', $fontSize: 13px, $fontWeight: normal, $lineHeight: normal) {
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
+}
+
+// $WorkSansThin : 'work_sansthin';
+// $WorkSansExtraLight : 'work_sansextralight';
+// $WorkSansLight : 'work_sanslight';
+// $WorkSansRegular : 'work_sansregular';
+// $WorkSansMedium : 'work_sansmedium';
+// $WorkSansSemiBold : 'work_sanssemibold';
+// $WorkSansBold : 'work_sansbold';
+
+
+// Size
+
+$s50 : 50px;
+$s49 : 49px;
+$s48 : 48px;
+$s47 : 47px;
+$s46 : 46px;
+$s45 : 45px;
+$s44 : 44px;
+$s43 : 43px;
+$s42 : 42px;
+$s41 : 41px;
+$s40 : 40px;
+$s39 : 39px;
+$s38 : 38px;
+$s37 : 37px;
+$s36 : 36px;
+$s35 : 35px;
+$s34 : 34px;
+$s33 : 33px;
+$s32 : 32px;
+$s31 : 31px;
+$s30 : 30px;
+$s29 : 29px;
+$s28 : 28px;
+$s27 : 27px;
+$s26 : 26px;
+$s25 : 25px;
+$s24 : 24px;
+$s23 : 23px;
+$s22 : 22px;
+$s21 : 21px;
+$s20 : 20px;
+$s18 : 18px;
+$s16 : 16px;
+$s15 : 15px;
+$s14 : 14px;
+$s13 : 13px;
+$s12 : 12px;
+$s11 : 11px; 
+$s10 : 10px;
+$s9 : 9px;
+$s8 : 8px;
+$s7 : 7px;
+$s6 : 6px;
+$s5 : 5px;
+$s4 : 4px;
+$s3 : 3px;
+$s2 : 2px;
+$s1 : 1px;
+$s0 : 0px;
+
+// Text Format 
+
+$uppercase : uppercase;
+$lowercase : lowercase;
+$capitalize : capitalize;
+$none : none;
+$unset: unset;
+
+// Placeholder
+
+@mixin input-placeholder {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+
+input,  
+textarea {  
+  @include input-placeholder {
+      color: red;
+  }
+}
+
+
+// Medai query mixin
+
+$breakpoints: (
+    "phone":        400px,
+    "phone-wide":   480px,
+    "phablet":      560px,
+    "tablet-small": 640px,
+    "tablet":       768px,
+    "tablet-wide":  1024px,
+    "desktop":      1248px,
+    "desktop-wide": 1440px
+);
+@mixin mq($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if $type == max {
+            $width: $width - 1px;
+        }
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+@function z($name) {
+  @if index($z-indexes, $name) {
+      @return (length($z-indexes) - index($z-indexes, $name)) + 1;
+  } @else {
+      @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+      @return null;
+  }
+}
+$z-indexes: (
+  "outdated-browser",
+  "modal",
+  "site-header",
+  "page-wrapper",
+  "site-footer"
+);
+
+
+// :before and :after
+
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+// Typography
+body {
+  font-family: 'Work Sans' !important;
+  background: $bodyBg;
+}
+
+.test {
+  ::after {
+    @include pseudo(block, absolute, '');
+  }
+}
+
+.h1 {
+  font-size: $s20;
+  font-family: 'Work Sans';
+  font-weight: $weight600;
+}
+.h2 {
+  font-size: $s18;
+  font-family: 'Work Sans';
+  font-weight: $weight600;
+}
+.h3 {
+  font-size: $s16;
+  font-family: 'Work Sans';
+  font-weight: $weight600;
+}
+.h4 {
+  font-size: $s14;
+  font-family: 'Work Sans';
+  font-weight: $weight600;
+}
+.h5 {
+  font-size: $s16;
+  font-family: 'Work Sans';
+  font-weight: $weight600;
+  text-transform: $uppercase;
+}
+.h6 {
+  font-size: $s13;
+  font-family: 'Work Sans';
+  font-weight: $weight600;
+  text-transform: $uppercase;
+}
+.primaryLinkOnLightBg {
+  color: $primaryLinkOnLightBg;
+  &:hover {
+    color: $primaryLinkOnLightHover;
+    text-decoration: underline;
+  }
+}
+.secondaryLinkOnLightBg {
+  color: $secondaryLinkOnLightBg;
+  &:hover {
+    color: $secondaryLinkOnLightHover;
+    text-decoration: underline;
+  }
+}
+.primaryLinkOnDarkBg {
+  color: $primaryLinkOnDarkBg;
+  &:hover {
+    color: $primaryLinkOnDarkHover;
+    text-decoration: underline;
+  }
+}
+.secondaryLinkOnDarkBg {
+  color: $secondaryLinkOnDarkBg;
+  &:hover {
+    color: $secondaryLinkOnDarkHover;
+    text-decoration: underline;
+  }
+}
+
+// Buttons 
+
+.defaultBtn {
+  font-size: $s13;
+  padding: $s12 $s20; 
+  border-radius: 5px; 
+  min-width:70px;
+  border: 0;
+  font-family: 'Work Sans';
+  font-weight: $weight600;
+  cursor: pointer;
+  &.purpleBtn {  
+    background: $defaultBG;
+    color: $white;
+    border: $border2px;
+    &:hover {
+      background: $defaultHover;
+    }
+    &.disabled {
+      background: $defaultDisabledBG; 
+      color: $defaultDisabledColor;
+      cursor: not-allowed;
+    }
+  }
+  &.blueBorderBtn {  
+    background: $white;
+    color: $default1BorderAndHover;
+    border: 2px solid $default1BorderAndHover;
+    &:hover {
+      color: $white;
+      background: $default1BorderAndHover;
+    }
+    &.disabled {
+      border-color: $defaultDisabledBG; 
+      color: $defaultDisabledColor;
+      background: $white;
+      cursor: not-allowed;
+    }
+  }
+  &.bluBgBtn{
+    background: $default1BorderAndHover;
+    color: $white;
+    border: $border2px;
+    &:hover {
+      background: $primaryLinkOnLightHover;      
+    }
+    &.disabled {
+      background: $defaultDisabledBG; 
+      color: $defaultDisabledColor;
+      cursor: not-allowed;
+    }
+  }&.pending {
+    background: $pending;
+    color: $white;
+    border: $border2px;
+    &:hover {
+      background: $white;
+      border-color: $pending;
+      color: $pending
+    }
+  }&.start {
+    background: $start;
+    color: $white;  
+    border: $border2px;
+    &:hover {
+      background: $white;
+      border-color: $start;
+      color: $start
+    }
+  }&.completed {
+    background: $completed;
+    color: $white;
+    border: $border2px;
+    &:hover {
+      background: $white;
+      border-color: $completed;
+      color: $completed
+    }
+  }&.success {
+    background: $success;
+    color: $white;
+    border: $border2px;
+    &:hover {
+      background: $white;
+      border-color: $success;
+      color: $success
+    }
+  }&.warning {
+    background: $warning;
+    color: $white;
+    border: $border2px;
+    &:hover {
+      background: $white;
+      border-color: $warning;
+      color: $warning
+    }
+  }&.fail {
+    background: $fail;
+    color: $white;
+    border: $border2px;
+    &:hover {
+      background: $white;
+      border-color: $fail;
+      color: $fail
+    }
+  }
+  &:focus {
+    outline: transparent;
+  }
+  &:before,
+  &:after {
+    display: block;
+    content: '';
+  }
+}
+
+.d-flex{
+  display: flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  &.flex-wrap{ 
+    flex-wrap: wrap;
+  }
+  &.align-items-end{
+    align-items: flex-end;
+  }
+  &.align-items-start{
+    align-items: flex-start;
+  }
+  &.align-items-stretch{
+    align-items: stretch;
+  }
+  &.align-items-center{
+    align-items: center;
+  }  
+  &.justify-content-end{
+    justify-content: flex-end;
+  }
+  &.justify-content-start{
+    justify-content: flex-start;
+  }
+  &.justify-content-space-between {
+    justify-content: space-between;    
+  }
+  &.justify-content-space-evenly{
+    justify-content: space-evenly;
+  }
+  &.justify-content-center{
+    justify-content: center;
+  }
+  .flex-grow-1 {
+    flex-grow: 1;
+  }
+  .flex-grow-2 {
+    flex-grow: 2;
+  }
+  .flex-grow-3 {
+    flex-grow: 3;
+  }
+  .flex-grow-4 {
+    flex-grow: 4;
+  }
+}
