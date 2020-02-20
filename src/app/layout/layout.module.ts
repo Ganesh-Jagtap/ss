@@ -6,13 +6,18 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from './material/material.module';
-import { SharedService } from './shared/shared.service'
-import { SharedModule } from './shared/shared.module'
-
+import { SharedModule } from './shared/shared.module';
+// import { DataService } from "./services/data.service";
+// import { AddDialogComponent } from "./dialogs/add/add.dialog.component";
+// import { EditDialogComponent } from "./dialogs/edit/edit.dialog.component";
+// import { DeleteDialogComponent } from "./dialogs/delete/delete.dialog.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ReactiveFormsModule } from "@angular/forms";
+import { ModulesModule } from './modules/modules.module';
 
 @NgModule({
   declarations: [
-    LayoutComponent,
+    LayoutComponent
 
   ],
   imports: [
@@ -21,7 +26,10 @@ import { SharedModule } from './shared/shared.module'
     FormsModule,
     BrowserModule,
     MaterialModule,
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    ModulesModule
   ],
   exports: [
     LayoutComponent

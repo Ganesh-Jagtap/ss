@@ -23,6 +23,7 @@ import { faCopyright } from '@fortawesome/free-solid-svg-icons';
 export class SdiebarComponent implements OnInit {
 
   collapsedWindow: boolean = false;
+  status: boolean = false;
 
   faChartBar = faChartBar;
   faUserTie = faUserTie;
@@ -44,5 +45,10 @@ export class SdiebarComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  // hamburgerIconToggle() {
+  //   this.status = !this.status;
+  //   this.collapsedWindow = !this.collapsedWindow;
+  // }
 
 }

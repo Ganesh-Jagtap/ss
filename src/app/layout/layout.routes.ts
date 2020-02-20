@@ -1,12 +1,18 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
 import { LayoutComponent } from './layout.component';
+import { FacilitySetupComponent } from './modules/facility-setup/facility-setup.component';
 
 
 export const layoutroutes: Routes = [
   {
     path: '',
-    component: LayoutComponent
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'facility-setup',
+        component: FacilitySetupComponent
+      }
+    ]
 
   }
 ];

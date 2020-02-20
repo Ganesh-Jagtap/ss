@@ -1,6 +1,8 @@
 <section class="sideMenu" [ngClass]="collapsedWindow ? 'open' : 'close'">
     <div class="logo d-flex align-items-center justify-content-center">
-        <img src="../../../assets/images/logo.jpg" alt="Exela Smart Office" title="Exela Smart Office" />
+        <a routerLink="/">
+            <img src="../../../assets/images/logo.jpg" alt="Exela Smart Office" title="Exela Smart Office" />
+        </a>
     </div>
     <div class="menu">
         <ul>
@@ -15,7 +17,7 @@
                 </a>
             </li>
             <li>
-                <a>
+                <a routerLink="/facility-setup">
                     <fa-icon [icon]="faBuilding"></fa-icon> <span>Facility Setup</span>
                 </a>
             </li>

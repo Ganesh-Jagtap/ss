@@ -2,10 +2,13 @@
     <section class="flex-grow-1 sideBar">
         <app-sidebar></app-sidebar>
     </section>
-    <section class="flex-grow-2">
+    <section class="flex-grow-2 d-flex flex-direction-column">
         <app-header></app-header>
-        <section>
+        <section class="mainContainer">
             <router-outlet></router-outlet>
+        </section>
+        <section class="footer mt-auto">
+            <app-footer></app-footer>
         </section>
     </section>
 

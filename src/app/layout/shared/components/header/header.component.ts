@@ -16,11 +16,16 @@ export class HeaderComponent implements OnInit {
   dropdownStatus: boolean = false;
   collapsedWindow: boolean = false;
 
-
   constructor(
     private _eref: ElementRef,
     // private sidebarcomponent: SdiebarComponent
+
   ) { }
+  // visible: boolean = false;
+
+  // toggleSidebar(): void {
+  //   this.visible = !this.visible;
+  // }
 
   ngOnInit() {
   }

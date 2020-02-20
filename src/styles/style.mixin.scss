@@ -22,11 +22,13 @@ $State : #40505b;
 $midGray : #6E7881;
 $lightGray : #e1e2e3;
 $white : #ffffff;
-$lightBlue: #a2ddf9;
+$lightBlue: #a2ddf9; 
+$lighterBlue: #cdecff; 
 $Blue : #4dc5f2;
 $magenta : #cc1b98;
 $bodyBg : #f5f9fa;
 $sideBarBg : #1177d9;
+$placeholderColor : #9fb6c1;
 
 // Buttons color
 
@@ -162,12 +164,7 @@ $unset: unset;
   &::-webkit-input-placeholder { @content; }
 }
 
-input,  
-textarea {  
-  @include input-placeholder {
-      color: red;
-  }
-}
+
 
 
 // Medai query mixin
@@ -295,7 +292,7 @@ body {
 
 .defaultBtn {
   font-size: $s13;
-  padding: $s12 $s20; 
+  padding: $s10 $s20; 
   border-radius: 5px; 
   min-width:70px;
   border: 0;
@@ -413,6 +410,15 @@ body {
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
+  &.flex-direction-column {
+    flex-direction: column;
+    .mt-auto{
+      margin-top: auto;
+    }
+  }
+  &.flex-direction-row {
+    flex-direction: row
+  }
   &.flex-wrap{ 
     flex-wrap: wrap;
   }
@@ -454,5 +460,143 @@ body {
   }
   .flex-grow-4 {
     flex-grow: 4;
+  }
+}
+
+// Table css
+
+.pageView {
+  .pageTitleSection {            
+      .h1 {
+          margin: $s0 $s0 $s15 $s0 ; 
+      }
+  }
+  // .pageDetailSection {
+
+  // }
+}
+
+.hamburgMenu {
+  margin: $s0 $s0 $s0 $s20;
+  .hamburgerIcon {
+     width: $s25;
+     height: $s20;
+     position: relative;
+     margin: $s0;
+     -webkit-transform: rotate(0deg);
+     -moz-transform: rotate(0deg);
+     -o-transform: rotate(0deg);
+     transform: rotate(0deg);
+     -webkit-transition: .5s ease-in-out;
+     -moz-transition: .5s ease-in-out;
+     -o-transition: .5s ease-in-out;
+     transition: .5s ease-in-out;
+     cursor: pointer;
+     span {
+       display: block;
+       position: absolute;
+       height: $s3;
+       width: 50%;
+       background: #333;
+       opacity: 1;
+       -webkit-transform: rotate(0deg);
+       -moz-transform: rotate(0deg);
+       -o-transform: rotate(0deg);
+       transform: rotate(0deg);
+       -webkit-transition: .25s ease-in-out;
+       -moz-transition: .25s ease-in-out;
+       -o-transition: .25s ease-in-out;
+       transition: .25s ease-in-out;
+       &:nth-child(even) {
+         left: 50%;
+         border-radius: $s0 $s9 $s9 $s0;
+       }
+       &:nth-child(odd) {
+         left: $s0;
+         border-radius: $s9 $s0 $s0 $s9;
+       }
+       &:nth-child(1),&:nth-child(2) {
+         top: $s0;
+       }
+       &:nth-child(3),&:nth-child(4) {
+         top: $s7;
+       }
+       &:nth-child(5),&:nth-child(6) {
+         top: $s14;
+       }
+     }
+     &.open{
+         span{
+             &:nth-child(1),&:nth-child(6) {
+               -webkit-transform: rotate(45deg);
+               -moz-transform: rotate(45deg);
+               -o-transform: rotate(45deg);
+               transform: rotate(45deg);
+             }
+             &:nth-child(2),&:nth-child(5) {
+               -webkit-transform: rotate(-45deg);
+               -moz-transform: rotate(-45deg);
+               -o-transform: rotate(-45deg);
+               transform: rotate(-45deg);
+             }
+             &:nth-child(1) {
+               left: $s1;
+               top: $s3;
+             }
+             &:nth-child(2) {
+               left: calc(50% - $s5);
+               top: $s3;
+             }
+             &:nth-child(3) {
+               left: -50%;
+               opacity: 0;
+             }
+             &:nth-child(4) {
+               left: 100%;
+               opacity: 0;
+             }
+             &:nth-child(5) {
+               left: $s1;
+               top: $s10;
+             }
+             &:nth-child(6) {
+               left: calc(50% - $s5);
+               top: $s10;
+             }
+         }
+     }
+   }
+
+}
+
+.detailSection {
+  background: $white;
+  padding: $s20;
+  .search-addnew-section {
+    .search-input {
+      max-width: 195px;
+      border-bottom: $s1 solid $placeholderColor;
+      padding: $s0 $s0 $s5 $s0;
+      margin: $s0 $s20 $s0 $s0;
+      span {
+        padding: $s0 $s5 $s0 $s0;
+        .ng-fa-icon {
+          font-size: $s14;
+          color: $midGray;
+        }
+      }
+      input {
+        border: $s0;
+        @include input-placeholder {
+            color: $placeholderColor;
+        }
+        &:focus{
+          outline: transparent;
+        }
+      }
+    }
+    .add-new {
+      color: #000;
+    }
   }
 }

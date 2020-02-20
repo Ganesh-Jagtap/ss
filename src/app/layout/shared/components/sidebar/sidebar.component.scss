@@ -1,8 +1,19 @@
 @import './../../../../../styles/style.mixin';
 
+
+
 .sideMenu {
     background: $sideBarBg; 
     height: 100%;
+    position: relative;
+    flex-basis: 230px;
+    max-width: 230px;
+    .hamburgMenu{
+        position: absolute;
+        margin: 0;
+        left: 250px;
+        top: 25px;
+    }
     .logo {
         height: 70px;
         background: $white;
@@ -18,21 +29,48 @@
             li{
                 a {
                     display: block;
-                    padding: $s15 $s20;
+                    padding: $s14 $s18;
                     color: $white;
-                    font-weight: $weight400;
+                    font-weight: $weight300;
                     font-size: $s14;
+                    text-decoration: none;
+                    // min-height: 49px; make changes on padding  - padding: $s0 $s20;
+                    // display: flex;
+                    // align-items: center;
                     cursor: pointer;
                     .ng-fa-icon,
                     .fa {
                         color: $white;
                         font-size: $s16;
+                        transition: 0.1s ease all;
                     }
                     span {
                         padding: $s0 $s0 $s0 $s12;
+                        transition: 0.5s ease all;
                     }
                     &:hover {
                         background: #124e73;
+                        // .ng-fa-icon,
+                        // .fa {
+                        //     font-size: $s20;
+                        // }
+                    }
+                }
+            }
+        }
+    }
+    &.open {
+    flex-basis: 64px;
+    max-width: 64px;
+    transition: 0.5s ease all;
+        .menu {
+            ul {
+                li {
+                    a {
+                        span {
+                            display: none;
+                            opacity: 0;;
+                        }
                     }
                 }
             }
